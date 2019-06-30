@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "skipNpm": true,
+      "allowBranch": "master"
+    },
+    "run": {
+      "stream": true,
+      "parallel": true
+    }
+  },
+  "npmClient": "yarn",
+  "npmClientArgs": ["--ignore-engines"],
+  "useWorkspaces": true,
+  "version": "0.0.0"
+}

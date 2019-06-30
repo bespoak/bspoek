@@ -1,0 +1,31 @@
+{
+  "name": "bspoek",
+  "private": true,
+  "dependencies": {
+    "lerna": "^3.14.1",
+    "nodemon": "^1.19.0",
+    "prisma2": "0.0.114",
+    "yarn": "^1.13.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "config": {
+    "env": "development"
+  },
+  "scripts": {
+    "analyze": "lerna run --scope=genpac-server analyze",
+    "clean": "lerna clean -y && rm -rf ./node_modules",
+    "build": "lerna run --scope=genpac-server build",
+    "build-schema": "lerna run --scope=genpac-server build-schema",
+    "docker": "cd services/genpac-server/$npm_package_config_env && docker-compose",
+    "docker-up": "cd services/genpac-server/$npm_package_config_env && docker-compose up -d",
+    "docker-stop": "cd services/genpac-server/$npm_package_config_env && docker-compose stop",
+    "postinstall": "lerna bootstrap",
+    "production": "npm run --root:env=production",
+    "prestart-dev": "npm run docker-up",
+    "start-dev": "cd packages/genpac-server && npm run start-dev",
+    "prestart": "npm run docker-up",
+    "start": "cd packages/genpac-server && npm start"
+  }
+}
